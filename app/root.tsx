@@ -1,11 +1,12 @@
+import type { LinksFunction } from "@remix-run/node";
 import {
+  Link,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
 
 import "./tailwind.css";
 
@@ -24,7 +25,7 @@ export const links: LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-base-200">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,5 +42,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <div className="min-h-screen flex flex-col">
+      <div className="navbar bg-primary text-primary-content">
+        <div className="navbar-start">
+          <Link to="/" className="btn btn-ghost normal-case text-xl">Eureka Money</Link>
+        </div>
+      </div>
+      <div className="grow">
+
+        <Outlet />
+      </div>
+    </div>
+  );
 }
