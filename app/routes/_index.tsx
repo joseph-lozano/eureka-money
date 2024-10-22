@@ -9,7 +9,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="container py-12 mx-auto flex flex-col items-center space-y-12">
+    <div className="flex flex-col items-center space-y-12">
       <h1 className="text-6xl font-black text-center">
         Manage your family&apos;s finances and
         {" "}
