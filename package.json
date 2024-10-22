@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "remix vite:build",
-    "dev": "remix vite:dev",
+    "dev": "concurrently --names server,convex \"remix vite:dev\" \"convex dev\"",
     "lint": "eslint . --fix",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
@@ -18,10 +18,15 @@
     "@remix-run/node": "^2.13.1",
     "@remix-run/react": "^2.13.1",
     "@remix-run/serve": "^2.13.1",
+    "@t3-oss/env-core": "^0.11.1",
     "@vercel/remix": "^2.13.1",
+    "convex": "^1.17.0",
     "isbot": "^4.1.0",
+    "plaid": "^29.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-plaid-link": "^3.6.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.8.0",

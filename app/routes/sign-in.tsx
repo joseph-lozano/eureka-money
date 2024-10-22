@@ -1,13 +1,14 @@
 import { SignIn as ClerkSignIn } from "@clerk/remix";
-
-export function loader() {
-  return null;
-}
+import { useSearchParams } from "@remix-run/react";
 
 export default function SignIn() {
+  const search = useSearchParams();
+  const [searchParams] = search;
+  const redirectUrl = searchParams.get("redirectUrl");
   return (
     <div className="flex justify-center">
-      <ClerkSignIn />
+      <p>{redirectUrl}</p>
+      <ClerkSignIn forceRedirectUrl={redirectUrl ?? "/dashboard"} />
     </div>
   );
 }
